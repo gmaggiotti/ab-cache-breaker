@@ -1,0 +1,24 @@
+{
+  "name": "ab-cache-breaker",
+  "version": "1.0.0",
+  "description": "ab like tool with a cache breaker feature",
+  "main": "ab-cache-breaker.js",
+  "dependencies": {
+    "http": "0.0.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmaggiotti/ab-cache-breaker.git"
+  },
+  "author": "Gabriel Maggiotti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gmaggiotti/ab-cache-breaker/issues"
+  },
+  "homepage": "https://github.com/gmaggiotti/ab-cache-breaker#readme"
+}
