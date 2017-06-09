@@ -17,6 +17,11 @@ function curl(url, options) {
 
 function usage() {
     console.log("Usage: ./ab-cache-breaker -n <requests> -c <concurrency> <url>");
+    console.log("Options are:");
+    console.log("    -n requests     Number of requests to perform" );
+    console.log("    -c concurrency  Number of multiple requests to make at a time");
+    console.log("    -device         inputcan be 'desktop' or 'mobile'")
+
 }
 
 function parseArguments() {
