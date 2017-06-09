@@ -16,7 +16,7 @@ function curl(url, options) {
 }
 
 function usage() {
-    console.log("Usage: ./ab-cache-breaker -n <count> -c <concurrency> <url>");
+    console.log("Usage: ./ab-cache-breaker -n <requests> -c <concurrency> <url>");
 }
 
 function parseArguments() {
