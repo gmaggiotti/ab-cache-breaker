@@ -3,6 +3,7 @@ Apache ab command like script made in node that permits to send GET request addi
 
 Tool  for benchmarking your WebApp that use Protocol (HTTP) server. It is designed for use on stress tests on your own servers. 
 
+<pre><code>$ ws --help
 <strong>Synopsis</strong>
 
   $ ab-cache-breaker -n <requests> -c <concurrency> <url>
@@ -12,4 +13,6 @@ Tool  for benchmarking your WebApp that use Protocol (HTTP) server. It is design
 
   -n, requests                  Number of requests to perform.
   -c, concurrency               Number of multiple requests to make at a time current directory.
-  url, [http[s]://]hostname[:port]/path        
+  url, [http[s]://]hostname[:port]/path  
+        
+</code></pre>
