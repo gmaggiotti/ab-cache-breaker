@@ -6,7 +6,7 @@ Tool  for benchmarking your WebApp that use Protocol (HTTP) server. It is design
 <pre><code>$ ws --help
 <strong>Synopsis</strong>
 
-  $ ab-cache-breaker -n <requests> -c <concurrency> <url>
+  $ ab-cache-breaker -n [requests] -c [concurrency] [url]
   $ ab-cache-breaker --help
 
 <strong>ab-cache-breaker</strong>
@@ -14,6 +14,6 @@ Tool  for benchmarking your WebApp that use Protocol (HTTP) server. It is design
   -n, requests          Number of requests to perform.
   -c, concurrency       Number of multiple requests
   -d                    device [mobile/desktop] 
-  url, [http[s]://]hostname[:port]/path  
+  [url], [http[s]://]hostname[:port]/path  
         
 </code></pre>
