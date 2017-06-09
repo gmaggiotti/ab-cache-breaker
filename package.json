@@ -1,6 +1,6 @@
 {
   "name": "ab-cache-breaker",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "bin": {
     "ab-cache-breaker": "./ab-cache-breaker.js"
   },
