@@ -15,7 +15,7 @@ Tool  for benchmarking your WebApp that use Protocol (HTTP) server. It is design
   -c, concurrency       Number of multiple requests
                         to make at a time current 
                         directory
-  -device              [mobile/desktop] 
+  -d               device [mobile/desktop] 
   url, [http[s]://]hostname[:port]/path  
         
 </code></pre>
