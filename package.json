@@ -1,6 +1,7 @@
 {
   "name": "ab-cache-breaker",
   "version": "1.0.0",
+  "bin" : { "ab-cache-breaker" : "./ab-cache-breaker.js" },
   "description": "ab like tool with a cache breaker feature",
   "main": "ab-cache-breaker.js",
   "dependencies": {

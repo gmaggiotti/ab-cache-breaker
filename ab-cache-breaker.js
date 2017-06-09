@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var fetch = require('node-fetch');
 var url = require("url");
 
