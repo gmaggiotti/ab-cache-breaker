@@ -15,6 +15,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "load testing",
+    "stress testing",
+    "benchmark",
+    "performance",
+    "blackbox testing",
+    "http",
+    "request",
+    "stress",
+    "load"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gmaggiotti/ab-cache-breaker.git"
