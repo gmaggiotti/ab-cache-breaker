@@ -12,10 +12,11 @@ Tool  for benchmarking your WebApp that use Protocol (HTTP) server. It is design
 <strong>ab-cache-breaker</strong>
 
   -n, requests          Number of requests to perform.
-  -c, concurrency       Number of multiple requests.
+  -c, concurrency    Number of multiple requests.
+  [url]                     [http[s]://]hostname[:port]/path
   
   <strong>optional:</strong>
   -d                    device [mobile/desktop] 
-  [url], [http[s]://]hostname[:port]/path  
+  
         
 </code></pre>
