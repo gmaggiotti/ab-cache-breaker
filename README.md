@@ -6,10 +6,9 @@ Tool  for benchmarking your WebApp that use Protocol (HTTP) server. It is design
 <strong>Install</strong>
 <pre><code>
 $npm install -g ab-cache-breaker
-</code></pre>
+<br>
 
 <strong>Synopsis</strong>
-<pre><code>
 <br>
   $ ws --help
   $ ab-cache-breaker -n [requests] -c [concurrency] [url]
