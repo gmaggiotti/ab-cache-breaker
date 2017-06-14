@@ -7,9 +7,13 @@ var count;
 var concurrency;
 var device = "desktop";
 
+function sum(a,b) {
+    return parseInt(a) + parseInt(b);
+}
+
 function mean(array) {
     return array.reduce(function (p, c) {
-            return p + c;
+            return sum(p , c);
         }) / array.length;
 }
 
@@ -41,60 +45,63 @@ function parseArguments() {
         process.exit(-1);
     }
 
-    if (arg[2] != "-n") {
-        usage()
+    if (arg[2] !== "-n") {
+        usage();
         process.exit(-1);
     }
 
-    if (arg[4] != "-c" || parseInt(arg[3]) < parseInt(arg[5])) {
-        usage()
+    if (arg[4] !== "-c" || parseInt(arg[3]) < parseInt(arg[5])) {
+        usage();
         process.exit(-1);
     }
 
     if ((res = arg.findIndex((val) => {
-            return val == "-d"
-        })) != -1) {
+            return (val === "-d")
+        })) !== -1) {
         this.device = arg[res + 1];
         console.log("*****" + this.device);
     }
 
-    this.host = arg[6]
+    this.host = arg[6];
     this.count = arg[3];
     this.concurrency = arg[5];
     ;
 
 }
 
-function abCacheBraker() {
-    parseArguments();
-    var proms = [];
-    var j = 0;
+function getFlattenPromises() {
+    let proms = [];
+    let j = 0;
     let options = {};
     for (i = 0; i < this.count; i++) {
-        if (this.device == "mobile")
+        if (this.device === "mobile")
             options = {
                 headers: {'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Mobile Safari/537.36'}
             };
-
         let url_breaker = "?a" + Math.floor(Math.random() * 10) + "=" + Math.floor(Math.random() * 100000);
         proms[j++] = curl(this.host + url_breaker, options);
-
-        if (i % this.concurrency == 0 && i > 0) {
-            Promise.all(proms).catch(function (e) {
-                console.log(e);
-            }).then((response) => {
-                console.log("Completed " + i + " requests in " + mean(response) + "ms.");
-            });
-            j = 0;
-        } else if (i == this.count - 1) {
-            Promise.all(proms).catch(function (e) {
-                console.log(e);
-            }).then((response) => {
-                console.log("Completed " + (i + 1) + " requests in " + mean(response) + "ms.");
-            });
-            j = 0;
-        }
     }
+    return proms
+};
+
+function runFirst(proms, i, step) {
+    return new Promise( (resolve, reject ) => {
+        resolve(i);
+        Promise.all(proms.slice(i,sum(i,step))).catch(function (e) {
+            console.log(e);
+        }).then((response) => {
+            console.log("Completed " + sum(i , step) + " requests in " + mean(response).toFixed(2) + "ms.");
+            if( sum(i, step) < proms.length)
+                runFirst(proms, sum(i,step), (sum(i, step) > proms.length)? proms.length -i: step );
+        });
+
+    })
+}
+
+function abCacheBraker() {
+    parseArguments();
+    let proms = getFlattenPromises();
+    runFirst(proms,0,this.concurrency);
 }
 
 abCacheBraker()
