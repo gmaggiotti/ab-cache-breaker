@@ -84,15 +84,15 @@ function getFlattenPromises() {
     return proms
 };
 
-function runFirst(proms, i, step) {
+function run(proms, i, step) {
     return new Promise( (resolve, reject ) => {
         resolve(i);
         Promise.all(proms.slice(i,sum(i,step))).catch(function (e) {
             console.log(e);
         }).then((response) => {
-            console.log("Completed " + sum(i , step) + " requests in " + mean(response).toFixed(2) + "ms.");
+            console.log("Completed " + ((sum(i, step) > proms.length)? proms.length : sum(i ,step)) + " requests in " + mean(response).toFixed(2) + "ms.");
             if( sum(i, step) < proms.length)
-                runFirst(proms, sum(i,step), (sum(i, step) > proms.length)? proms.length -i: step );
+                run(proms, sum(i,step), (sum(i, step) > proms.length)? proms.length -i: step );
         });
 
     })
@@ -101,7 +101,7 @@ function runFirst(proms, i, step) {
 function abCacheBraker() {
     parseArguments();
     let proms = getFlattenPromises();
-    runFirst(proms,0,this.concurrency);
+    run(proms,0,this.concurrency);
 }
 
 abCacheBraker()
