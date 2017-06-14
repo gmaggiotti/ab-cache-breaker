@@ -59,7 +59,6 @@ function parseArguments() {
             return (val === "-d")
         })) !== -1) {
         this.device = arg[res + 1];
-        console.log("*****" + this.device);
     }
 
     this.host = arg[6];
