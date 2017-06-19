@@ -9,9 +9,9 @@ $npm install -g ab-cache-breaker
 <br>
 
 <strong>Synopsis</strong>
-  $ ws --help
-  $ ab-cache-breaker -n [requests] -c [concurrency] [url]
-  $ ab-cache-breaker --help
+  $ ws --help      
+  $ ab-cache-breaker -n [requests] -c [concurrency] [url]  
+  $ ab-cache-breaker --help  
 <br>
 <strong>ab-cache-breaker</strong>
   -n, requests          Number of requests to perform.
